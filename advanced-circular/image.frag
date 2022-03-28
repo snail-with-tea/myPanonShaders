@@ -95,7 +95,6 @@ vec4 fC( in vec2 fragCoord )
     }
 
     //uv hell ends here
-    fragColor = vec4(0.);
 
     //basic stuff
     float height = 1. - radius;
@@ -128,7 +127,7 @@ vec4 fC( in vec2 fragCoord )
         float arc = arc_endin - arc_begin + unit;
 
         //gettin color
-        vec3 rgb = vec3(1.);
+        vec3 rgb = getRGB(id*unit/arc);
 
         //gettin height
         vec4 sound = mean(((id+1.)*unit+drift)/arc,((id+2.)*unit+drift)/arc);
