@@ -84,7 +84,7 @@ vec4 fC( in vec2 fragCoord )
         //rOtAtE + Scale + offset
         float c=cos(radians(rotation));
         float s=sin(radians(rotation));
-        uv = (mat2(c,-s,s,c)*uv+vec2(offset_x,offset_y))*vec2(1./scale_x,1./scale_y);
+        uv = (mat2(c,-s,s,c)*uv-vec2(offset_x,offset_y))*vec2(1./scale_x,1./scale_y);
     }
     //going polar
     vec2 uvc = uv;
