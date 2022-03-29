@@ -160,7 +160,7 @@ vec4 fC( in vec2 fragCoord )
                 if(uv.y > radius+height) t = radius+height;
             }
             float rad = t*sin(radians((ang_endin-ang_begin)/2.));
-
+            if(uvmod) rad /= resol_x;
             //not rounded decorators
             if(uv.y > radius*(1.- sin(radians(angle_2fill)))){
                 if(flip){
