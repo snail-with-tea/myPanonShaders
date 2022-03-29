@@ -17,6 +17,7 @@
 #define offset_y $UV_offset_y
 #define scale_x $UV_scale_x
 #define scale_y $UV_scale_y
+#define resol_x $UV_resolution_multiplier
 
 
 #define visualmod $Enable_visualiser_modificators
@@ -54,8 +55,11 @@ vec4 mean(float _from,float _to) {
 }
 
 vec2 uv_old(vec2 p,float part){
-    if(mirror && mod(part,2.)>0.) p.x = 360./parts - p.x;
-    p.x += 360.*part/parts;
+    if(uvmod){
+        p.x /= resol_x;
+        if(mirror && mod(part,2.)>0.) p.x = 360./parts - p.x;
+        p.x += 360.*part/parts;
+    }
     p = p.y*vec2(sin(radians(p.x-180.)),cos(radians(p.x-180.)));
     p.y *= -1.;
     return p;
@@ -93,8 +97,10 @@ vec4 fC( in vec2 fragCoord )
         uv.x = mod(uv.x,360./parts);
         if(mirror && mod(part,2.)>0.) uv.x = 360./parts - uv.x;
     }
+    if(uvmod) uv.x *= resol_x;
 
     //uv hell ends here
+    fragColor = vec4(0);
 
     //basic stuff
     float height = 1. - radius;
@@ -103,9 +109,8 @@ vec4 fC( in vec2 fragCoord )
     //arc correction
     float arc_begin = arc_begin_g;
     float arc_endin = arc_endin_g;
-    if(arc_begin < 0.) arc_begin = 0.;
-    if(arc_begin > 360./parts) arc_begin = 360./parts;
-
+    if(arc_begin_g < 0.) arc_begin = 0.;
+    if(arc_endin_g > 360.*resol_x/parts) arc_endin = 360.*resol_x/parts;
     //straitning lines
     float ang_begin = 0.;
     float ang_endin = angle_2fill;
@@ -157,14 +162,15 @@ vec4 fC( in vec2 fragCoord )
             float rad = t*sin(radians((ang_endin-ang_begin)/2.));
 
             //not rounded decorators
-            if(flip){
-                if(uv.y >= 1.- rad && uv.y <= 1.+ rad && decor && !rnded) fragColor=vec4(rgb,1.);
-                if(uv.y >= 1.- height- rad && uv.y <= 1.- height && decor && !rnded) fragColor=vec4(rgb,1.);
-            }else{
-                if(uv.y>=radius -rad && uv.y<=radius +rad && decor && !rnded) fragColor=vec4(rgb,1.);
-                if(uv.y>=radius+ height && uv.y<=radius+ height +rad && decor && !rnded) fragColor=vec4(rgb,1.);
+            if(uv.y > radius*(1.- sin(radians(angle_2fill)))){
+                if(flip){
+                    if(uv.y >= 1.- rad && uv.y <= 1.+ rad && decor && !rnded) fragColor=vec4(rgb,1.);
+                    if(uv.y >= 1.- height- rad && uv.y <= 1.- height && decor && !rnded) fragColor=vec4(rgb,1.);
+                }else{
+                    if(uv.y>=radius -rad && uv.y<=radius +rad && decor && !rnded) fragColor=vec4(rgb,1.);
+                    if(uv.y>=radius+ height && uv.y<=radius+ height +rad && decor && !rnded) fragColor=vec4(rgb,1.);
+                }
             }
-
 
             //rounded decorators
             if(decor && rnded && uv.y > radius*(1.- sin(radians(angle_2fill)))){

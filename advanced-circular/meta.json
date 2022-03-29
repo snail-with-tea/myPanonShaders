@@ -19,22 +19,22 @@
         "min":0.1
     },{
         "name":"Arc_start_angle",
-        "default":0,
+        "default":"0.0",
         "type":"float",
         "min":0
     },{
         "name":"Arc_end_angle",
-        "default":360,
+        "default":"360.0",
         "type":"float",
         "min":20
     },{
         "name":"Angle_fill",
-        "default":5.1,
+        "default":"5.0",
         "type":"float",
-        "min":0.5
+        "min":0.01
     },{
         "name":"Angle_empty",
-        "default":0.9,
+        "default":"1.0",
         "type":"float",
         "min":0
     },{
@@ -53,24 +53,29 @@
         "type":"bool"
     },{
         "name":"UV_rotation",
-        "default":0.0,
+        "default":"0.0",
         "type":"float"
     },{
         "name":"UV_offset_x",
-        "default":0.0,
+        "default":"0.0",
         "type":"float"
     },{
         "name":"UV_offset_y",
-        "default":0.0,
+        "default":"0.0",
         "type":"float"
         },{
         "name":"UV_scale_x",
-        "default":0.9,
+        "default":0.95,
         "type":"float"
     },{
         "name":"UV_scale_y",
-        "default":0.9,
+        "default":0.95,
         "type":"float"
+    },{
+        "name":"UV_resolution_multiplier",
+        "default":"1.0",
+        "type":"float",
+        "min":1
     },{
         "name":"Visual modifiers start here",
         "default":false,
@@ -81,7 +86,7 @@
         "type":"bool"
     },{
         "name":"Show_body",
-        "default":false,
+        "default":true,
         "type":"bool"
     },{
         "name":"Show_decorators",
@@ -97,11 +102,11 @@
         "type":"bool"
     },{
         "name":"Drift_offset",
-        "default":0.0,
+        "default":"0.0",
         "type":"float"
     },{
         "name":"Drift_multiplier",
-        "default":0.0,
+        "default":"0.0",
         "type":"float"
     }]
 }
