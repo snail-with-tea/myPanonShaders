@@ -1,0 +1,155 @@
+{
+    "arguments":[{
+        "name":"Number_of_units",
+        "default":60,
+        "type":"int"
+    },{
+        "name":"Unit_fill_%",
+        "default":"80.0",
+        "type":"float"
+    },{
+        "name":"Inner_radius",
+        "default":"0.6",
+        "type":"float"
+    },{
+        "name":"Flip_inside-out",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Show_bars",
+        "default":true,
+        "type":"bool"
+    },{
+        "name":"Make_bars_even_width",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Show_decorators",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Round_decorators",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Fit_in_low",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Fit_in_high",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Drift_factor",
+        "default":"0.0",
+        "type":"float"
+    },{
+        "name":"Divide_circle_into_N_arcs",
+        "default":1,
+        "type":"int"
+    },{
+        "name":"Mirror_every_2'nd_arc",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Arc_begin_%",
+        "default":"0.0",
+        "type":"float"
+    },{
+        "name":"Arc_end_%",
+        "default":"100.0",
+        "type":"float"
+    },{
+        "name":"Edit_points",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Show_values",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"P1x",
+        "default":"-1.0",
+        "type":"float",
+        "min":-31.0,
+        "max": 31.0
+    },{
+        "name":"P1y",
+        "default":"-1.0",
+        "type":"float",
+        "min":-31.0,
+        "max": 31.0
+    },{
+        "name":"P2x",
+        "default":" 1.0",
+        "type":"float",
+        "min":-31.0,
+        "max": 31.0
+    },{
+        "name":"P2y",
+        "default":"-1.0",
+        "type":"float",
+        "min":-31.0,
+        "max": 31.0
+    },{
+        "name":"P3x",
+        "default":" 1.0",
+        "type":"float",
+        "min":-31.0,
+        "max": 31.0
+    },{
+        "name":"P3y",
+        "default":" 1.0",
+        "type":"float",
+        "min":-31.0,
+        "max": 31.0
+    },{
+        "name":"P4x",
+        "default":"-1.0",
+        "type":"float",
+        "min":-31.0,
+        "max": 31.0
+    },{
+        "name":"P4y",
+        "default":" 1.0",
+        "type":"float",
+        "min":-31.0,
+        "max": 31.0
+    },{
+        "name":"Proportional_scaling",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Snap_to_i*15_angle",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Update_UV_every_frame",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"Move_center_only",
+        "default":false,
+        "type":"bool"
+    },{
+        "name":"AntiAliasing_factor",
+        "default":2,
+        "type":"float"
+    },{
+        "name":"POCx",
+        "default":"0.0",
+        "type":"float"
+    },{
+        "name":"POCy",
+        "default":"0.0",
+        "type":"float"
+    },{
+        "name":"POVx",
+        "default":"0.0",
+        "type":"float"
+    },{
+        "name":"POVy",
+        "default":"0.0",
+        "type":"float"
+    }]
+}
